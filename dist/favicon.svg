@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="saGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1769F5"/>
+      <stop offset="100%" stop-color="#08C9E8"/>
+    </linearGradient>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#1769F5" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect x="36" y="36" width="440" height="440" rx="120" ry="120" fill="url(#saGradient)" filter="url(#subtleShadow)"/>
+  <text x="256" y="316" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="190" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="-2">SA</text>
+</svg>
