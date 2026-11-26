@@ -1,0 +1,525 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-royal-blue: #2563EB;
+    --secondary-blue: #3B82F6;
+    --deep-navy: #172554;
+    --heading-navy: #172554;
+    --main-page-bg: #F4F7FF;
+    --secondary-bg: #EFF6FF;
+    --soft-blue-gradient: #DBEAFE;
+    --section-bg: #F4F7FF;
+    --white-surface: #FFFFFF;
+    --pure-white: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --secondary-card-bg: #F8FAFC;
+    --light-blue-card: #EFF6FF;
+    --card-border: #DBEAFE;
+    --divider: #DBEAFE;
+    --primary-text: #172554;
+    --secondary-text: #64748B;
+    --muted-text: #64748B;
+    --btn-blue-hover: #1D4ED8;
+
+    /* Abstract Geometric Blue Theme Palette Tokens */
+    --pastel-sky: #B9E6F7;
+    --soft-cyan: #A9DFF3;
+    --pale-blue: #D6F0FA;
+    --very-light-blue: #EAF7FC;
+
+    /* Centralized Typography System (Strict Desktop Tokens) */
+    --font-size-section-heading: 42px;
+    --line-height-section-heading: 1.2;
+    --font-weight-section-heading: 800;
+
+    --font-size-section-subtitle: 18px;
+    --line-height-section-subtitle: 1.6;
+    --font-weight-section-subtitle: 400;
+
+    --font-size-card-heading: 22px;
+    --line-height-card-heading: 1.35;
+    --font-weight-card-heading: 700;
+
+    --font-size-card-title: 17px;
+    --line-height-card-title: 1.4;
+    --font-weight-card-title: 600;
+
+    --font-size-body-paragraph: 17px;
+    --line-height-body-paragraph: 1.65;
+    --font-weight-body-paragraph: 400;
+
+    --font-size-secondary-text: 14px;
+    --line-height-secondary-text: 1.5;
+    --font-weight-secondary-text: 400;
+
+    --font-size-metadata: 13px;
+    --line-height-metadata: 1.4;
+    --font-weight-metadata: 500;
+
+    --font-size-navigation: 14px;
+    --line-height-navigation: 1.4;
+    --font-weight-navigation: 600;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: #172554;
+    background-color: #EAF7FC;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    color: #172554;
+    background-color: #EAF7FC;
+    background-image: linear-gradient(135deg, #B9E6F7 0%, #C7EDF9 25%, #D6F0FA 60%, #EAF7FC 85%, #FFFFFF 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F7FF;
+}
+::-webkit-scrollbar-thumb {
+  background: #DBEAFE;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
+}
+
+/* Premium Light Blue Glassmorphism surfaces matching reference design */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #DBEAFE;
+  box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.08), 0 4px 6px -2px rgba(37, 99, 235, 0.04);
+}
+
+.glass-surface-subtle {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(219, 234, 254, 0.8);
+}
+
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #DBEAFE;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.06), 0 4px 10px -2px rgba(23, 37, 84, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: #BFDBFE;
+  box-shadow: 0 20px 40px -8px rgba(37, 99, 235, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Primary and Secondary button classes matching exact user specifications */
+.btn-primary {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  border: 1px solid #2563EB;
+  box-shadow: 0 4px 14px -1px rgba(37, 99, 235, 0.22);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary:hover {
+  background-color: #1D4ED8;
+  border-color: #1D4ED8;
+  box-shadow: 0 6px 20px -2px rgba(37, 99, 235, 0.32);
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #172554;
+  border: 1px solid #DBEAFE;
+  box-shadow: 0 2px 8px -1px rgba(37, 99, 235, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-secondary:hover {
+  background-color: #F4F7FF;
+  border-color: #BFDBFE;
+  color: #2563EB;
+}
+
+/* Centralized Typography Enforced Utility Classes */
+.typo-section-heading {
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: var(--font-weight-section-heading);
+  letter-spacing: -0.025em;
+  color: var(--heading-navy);
+}
+@media (min-width: 640px) {
+  .typo-section-heading {
+    font-size: var(--font-size-section-heading); /* 42px on desktop */
+    line-height: var(--line-height-section-heading);
+  }
+}
+
+.typo-section-subtitle {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: var(--font-weight-section-subtitle);
+  color: var(--secondary-text);
+}
+@media (min-width: 640px) {
+  .typo-section-subtitle {
+    font-size: var(--font-size-section-subtitle); /* 18px on desktop */
+    line-height: var(--line-height-section-subtitle);
+  }
+}
+
+.typo-card-heading {
+  font-size: 19px;
+  line-height: 1.35;
+  font-weight: var(--font-weight-card-heading);
+  color: var(--heading-navy);
+}
+@media (min-width: 640px) {
+  .typo-card-heading {
+    font-size: var(--font-size-card-heading); /* 22px on desktop */
+  }
+}
+
+.typo-card-title {
+  font-size: var(--font-size-card-title); /* 17px on desktop */
+  line-height: var(--line-height-card-title);
+  font-weight: var(--font-weight-card-title);
+}
+
+.typo-body-paragraph {
+  font-size: var(--font-size-body-paragraph); /* 17px on desktop */
+  line-height: var(--line-height-body-paragraph);
+  font-weight: var(--font-weight-body-paragraph);
+  color: var(--secondary-text);
+}
+
+.typo-secondary-text {
+  font-size: var(--font-size-secondary-text); /* 14px on desktop */
+  line-height: var(--line-height-secondary-text);
+  font-weight: var(--font-weight-secondary-text);
+  color: var(--secondary-text);
+}
+
+.typo-metadata {
+  font-size: var(--font-size-metadata); /* 13px on desktop */
+  line-height: var(--line-height-metadata);
+  font-weight: var(--font-weight-metadata);
+}
+
+.typo-navigation {
+  font-size: var(--font-size-navigation); /* 14px on desktop */
+  line-height: var(--line-height-navigation);
+  font-weight: var(--font-weight-navigation);
+}
+
+/* Realistic Wind-Swaying Hanging ID Card Animations (3 Distinct Pendulum Periods & Angles) */
+@keyframes windSwaySSLC {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(2.4deg);
+  }
+  42% {
+    transform: rotate(-2.1deg);
+  }
+  65% {
+    transform: rotate(1.6deg);
+  }
+  84% {
+    transform: rotate(-1.1deg);
+  }
+}
+
+@keyframes windSwayHSC {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  22% {
+    transform: rotate(-1.9deg);
+  }
+  45% {
+    transform: rotate(1.7deg);
+  }
+  68% {
+    transform: rotate(-1.3deg);
+  }
+  86% {
+    transform: rotate(0.8deg);
+  }
+}
+
+@keyframes windSwayBE {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  24% {
+    transform: rotate(1.4deg);
+  }
+  48% {
+    transform: rotate(-1.3deg);
+  }
+  72% {
+    transform: rotate(0.9deg);
+  }
+  90% {
+    transform: rotate(-0.5deg);
+  }
+}
+
+@media (min-width: 640px) {
+  .card-sway-sslc {
+    transform-origin: top center;
+    animation: windSwaySSLC 6.8s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+    will-change: transform;
+  }
+
+  .card-sway-hsc {
+    transform-origin: top center;
+    animation: windSwayHSC 5.4s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+    will-change: transform;
+  }
+
+  .card-sway-be {
+    transform-origin: top center;
+    animation: windSwayBE 4.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+    will-change: transform;
+  }
+
+  /* Pause sway on hover for reading clarity */
+  .card-sway-sslc:hover,
+  .card-sway-hsc:hover,
+  .card-sway-be:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Subtle hanging card animation fallback */
+@keyframes lanyardSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(0.6deg);
+  }
+  75% {
+    transform: rotate(-0.6deg);
+  }
+}
+
+.hanging-sway {
+  transform-origin: top center;
+  animation: lanyardSway 7s ease-in-out infinite;
+}
+
+/* Fast Orbit Rotations - High Energy Universe */
+@keyframes orbitCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitCCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-orbit-inner {
+  animation: orbitCW 14s linear infinite;
+}
+
+.animate-orbit-middle {
+  animation: orbitCCW 22s linear infinite;
+}
+
+.animate-orbit-outer {
+  animation: orbitCW 30s linear infinite;
+}
+
+.animate-counter-inner {
+  animation: orbitCCW 14s linear infinite;
+}
+
+.animate-counter-middle {
+  animation: orbitCW 22s linear infinite;
+}
+
+.animate-counter-outer {
+  animation: orbitCCW 30s linear infinite;
+}
+
+.orbit-paused {
+  animation-play-state: paused !important;
+}
+
+/* Crisp 2D Logo Micro-Animations (Gentle vertical floating with razor-sharp 1:1 pixel rendering) */
+@keyframes logoFloat0 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes logoFloat1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes logoFloat2 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes logoFloat3 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.logo-float-0 {
+  animation: logoFloat0 3.6s ease-in-out infinite;
+  backface-visibility: hidden;
+}
+
+.logo-float-1 {
+  animation: logoFloat1 4.2s ease-in-out infinite;
+  backface-visibility: hidden;
+}
+
+.logo-float-2 {
+  animation: logoFloat2 3.8s ease-in-out infinite;
+  backface-visibility: hidden;
+}
+
+.logo-float-3 {
+  animation: logoFloat3 4.6s ease-in-out infinite;
+  backface-visibility: hidden;
+}
+
+/* Crisp icon and text rendering for high-definition sharpness */
+.crisp-render {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Target Certificate Card Reference Specifications */
+.certificate-card {
+  width: 100%;
+  min-height: 290px;
+  padding: 28px;
+  border-radius: 24px;
+}
+
+/* Target Project Card Reference Specifications */
+.project-card {
+  width: 100%;
+  min-height: 290px;
+  padding: 28px;
+  border-radius: 24px;
+}
+
+/* Abstract Geometric Blue Ambient Floating Animations */
+@keyframes gentleFloat1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(14px, -18px) scale(1.02);
+  }
+}
+
+@keyframes gentleFloat2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-12px, 14px) scale(0.98);
+  }
+}
+
+@keyframes gentleWaveFlow {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, -8px);
+  }
+}
+
+.animate-gentle-float-1 {
+  animation: gentleFloat1 22s ease-in-out infinite;
+}
+
+.animate-gentle-float-2 {
+  animation: gentleFloat2 28s ease-in-out infinite;
+}
+
+.animate-gentle-wave {
+  animation: gentleWaveFlow 24s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-gentle-float-1,
+  .animate-gentle-float-2,
+  .animate-gentle-wave,
+  .animate-orbit-inner,
+  .animate-orbit-middle,
+  .animate-orbit-outer,
+  .animate-counter-inner,
+  .animate-counter-middle,
+  .animate-counter-outer,
+  .card-sway-sslc,
+  .card-sway-hsc,
+  .card-sway-be,
+  .hanging-sway,
+  .logo-float-0,
+  .logo-float-1,
+  .logo-float-2,
+  .logo-float-3 {
+    animation: none !important;
+  }
+}
